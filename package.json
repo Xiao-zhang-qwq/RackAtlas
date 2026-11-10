@@ -1,0 +1,12 @@
+{
+  "name": "idc3d-core",
+  "version": "1.0.0.2",
+  "description": "IDC3D 运维系统 · 四项创新能力的可运行证明子集（非商用开源）",
+  "scripts": {
+    "test": "node examples/linkage-demo.js && node examples/nl-demo.js && node examples/undo-demo.js && node examples/export-demo.js"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "engines": {
+    "node": ">=18"
+  }
+}

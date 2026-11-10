@@ -1,0 +1,7 @@
+node_modules/
+config.ini
+data/*.tmp
+data/manual-undo.json
+data/snapshots/
+*.log
+.DS_Store
