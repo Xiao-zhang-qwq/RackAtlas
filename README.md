@@ -8,7 +8,7 @@
 
 ## 公开范围（最小证明子集）
 
-本仓库**刻意不公开任何完整实现**，仅公开四类创新能力的**最小可运行证明子集**，用于证明「这些功能确由本项目原创实现」以及版权归属：
+本仓库**刻意不公开任何完整实现**，仅公开五类创新能力的**最小可运行证明子集**，用于证明「这些功能确由本项目原创实现」以及版权归属：
 
 | 创新能力 | 证明子集 | 可运行自检 |
 |---|---|---|
@@ -16,22 +16,24 @@
 | 自然语言指令抗脏输入 | `lib/nl-public-demo.js` | `node examples/nl-demo.js` |
 | 手动操作撤销与最近变更 | `lib/undo-public-demo.js` | `node examples/undo-demo.js` |
 | Excel / JSON 导出设计 | `lib/export-public-demo.js` | `node examples/export-demo.js` |
+| 导入时临时指定柜名识别格式（示例推断） | `lib/rack-format-public-demo.js` | `node examples/rack-format-demo.js` |
 
-四个自检脚本均为纯内存、零依赖、不联网、不写盘，直接 `node` 运行即可验证，全部断言通过。
+五个自检脚本均为纯内存、零依赖、不联网、不写盘，直接 `node` 运行即可验证，全部断言通过。
 
 **本仓库不包含**：任何服务端主程序、HTTP 接口实现、UI 页面、样式文件、前端交互组件、三维渲染资源、静态资源服务、完整导入识别引擎、零依赖 XLSX 读写引擎、完整 AI 规则引擎、系统管理或部署脚本。以上完整实现仅在私有仓库 `IDC3D-full` 存证，以保证源代码安全。
 
-## 四项创新能力
+## 五项创新能力
 
 1. **设备 ↔ 网络设备接口联动**：设备详情只填上联交换机 SN 与端口号，即自动定位交换机、点亮对应端口；VLAN 变更同步回端口，端口冲突不静默覆盖，设备下架只熄灭自己占用的端口。证明子集见 `lib/linkage.js`，说明见 `docs/创新功能说明.md`。
 2. **自然语言指令抗脏输入**：「一句话改数据」支持错别字、口语、混乱语句、中文分号多指令、问句不误判写操作、端口范围与电力词条等。只公开极小能力证明子集（约 220 行 / 完整实现 5190 行，逐字摘录不足 20 行），不含完整规则表、动作表、计划执行、大模型兜底、系统提示词与前端交互。说明见 `docs/AI创新功能说明.md`。
 3. **手动操作撤销与最近变更**：每次手动修改前保存整库快照、后进先出撤销、步数上限；最近变更按时间倒序聚合、补齐机柜 / 机房、过滤孤儿记录。证明子集见 `lib/undo-public-demo.js`，说明见 `docs/撤销与导出功能说明.md`。
 4. **Excel / JSON 导出设计**：导出选项白名单解析（格式 / 着色方式 / 超链接 / 机房范围 / 文件名 / 详情类型）、自定义颜色映射校验。证明子集见 `lib/export-public-demo.js`，说明见 `docs/撤销与导出功能说明.md`。
+5. **导入时临时指定柜名识别格式（示例推断）**：内置规则覆盖不了某些柜名写法（如 `101机房A01`、`A区01`、`1F-A01`、`A栋01`）时，用户只需输入一个真实柜名示例，系统即按该示例的字符结构推断「房间号 / 列 / 序号」并解析整批柜名；只对本次导入生效，不符合示例结构的柜名不会被误读，失败自动回退内置规则。证明子集见 `lib/rack-format-public-demo.js`，说明见 `docs/创新功能说明.md`。
 
 ## 证明子集文件清单
 
-- `lib/linkage.js`、`lib/nl-public-demo.js`、`lib/undo-public-demo.js`、`lib/export-public-demo.js`：四个独立、自包含的证明模块（每个都是全量工程对应逻辑的**极小逐字摘录 + 演示级最小实现**）。
-- `examples/linkage-demo.js`、`examples/nl-demo.js`、`examples/undo-demo.js`、`examples/export-demo.js`：四个可运行自检。
+- `lib/linkage.js`、`lib/nl-public-demo.js`、`lib/undo-public-demo.js`、`lib/export-public-demo.js`、`lib/rack-format-public-demo.js`：五个独立、自包含的证明模块（每个都是全量工程对应逻辑的**极小逐字摘录 + 演示级最小实现**）。
+- `examples/linkage-demo.js`、`examples/nl-demo.js`、`examples/undo-demo.js`、`examples/export-demo.js`、`examples/rack-format-demo.js`：五个可运行自检。
 - `docs/创新功能说明.md`、`docs/AI创新功能说明.md`、`docs/撤销与导出功能说明.md`：创新点与公开边界说明。
 - `LICENSE`、`README.md`、`package.json`、`.gitattributes`、`.gitignore`：版权协议与最小工程配置。
 
