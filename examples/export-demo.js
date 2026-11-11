@@ -10,7 +10,7 @@
  *      → 演示级导出结果渲染（CSV 文本）。
  *
  * 完整 xlsx 生成引擎、HTTP 下载路由、导出弹窗 UI 仅由私有全量仓库
- * IDC3D-full 存证，不在本仓库公开。
+ * RackAtlas-full 存证，不在本仓库公开。
  */
 const assert = require('node:assert/strict');
 const { parseExportOptions, parseColorMap, describeExport } = require('../lib/export-public-demo');
