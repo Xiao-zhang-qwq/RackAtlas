@@ -36,7 +36,9 @@ This repository **deliberately publishes no complete implementation**. It contai
 
 All five self-check scripts are pure in-memory, dependency-free, offline and write nothing to disk. Run them directly with `node`; all assertions pass.
 
-**Not included in this repository**: any server main program, HTTP endpoint implementation, UI page, stylesheet, front-end interaction component, 3D rendering asset, static file server, the full import recognition engine, the zero-dependency XLSX engine, the complete AI rule engine, system administration, or deployment scripts. All of those exist only in the private repository `RackAtlas-full`, to keep the source code safe.
+**Not included in this repository**: any server main program, HTTP endpoint implementation, UI page, stylesheet, front-end interaction component, 3D rendering **code or asset files**, static file server, the full import recognition engine, the zero-dependency XLSX engine, the complete AI rule engine, system administration, or deployment scripts. All of those exist only in the private repository `RackAtlas-full`, to keep the source code safe.
+
+The five images under `docs/screenshots/` are **rendered screenshots of the interface**, used only by this README to illustrate what the product looks like. They contain no source code and cannot be used to reconstruct the interface. The repository contains no `.html`, `.css` or front-end `.js` files.
 
 ## The Five Innovations
 
@@ -51,7 +53,34 @@ All five self-check scripts are pure in-memory, dependency-free, offline and wri
 - `lib/linkage.js`, `lib/nl-public-demo.js`, `lib/undo-public-demo.js`, `lib/export-public-demo.js`, `lib/rack-format-public-demo.js`: five self-contained proof modules, each a **tiny verbatim extract plus a minimal demonstration-level implementation** of the corresponding logic in the full project.
 - `examples/linkage-demo.js`, `examples/nl-demo.js`, `examples/undo-demo.js`, `examples/export-demo.js`, `examples/rack-format-demo.js`: five runnable self-checks.
 - `docs/创新功能说明.md`, `docs/AI创新功能说明.md`, `docs/撤销与导出功能说明.md`: innovation notes and disclosure boundaries (in Chinese).
+- `docs/screenshots/`: five interface screenshots (`01-portal-overview` / `02-room-3d` / `03-rack-u-positions` / `04-import` / `05-nl-command`), for illustration only, containing no source code.
 - `LICENSE`, `README.md`, `README.en.md`, `package.json`, `.gitattributes`, `.gitignore`: license, bilingual documentation and minimal project configuration.
+
+## Screenshots
+
+The following screenshots are taken from the **actual running interface of the full project** (with the demo dataset loaded via `POST /api/reset`). They are shown here to illustrate the feature set only.
+
+**1. Room inventory overview** — room cards, rack / device / utilisation statistics, recent changes, capacity summary
+
+![Room inventory overview](docs/screenshots/01-portal-overview.jpg)
+
+**2. 3D data hall** — rack-column layout, power bars on rack tops, locate by rack name or serial number, free camera roaming
+
+![3D data hall](docs/screenshots/02-room-3d.jpg)
+
+**3. Rack U-position ledger** — U-position map, device list, rack details and port status
+
+![Rack U-position ledger](docs/screenshots/03-rack-u-positions.jpg)
+
+**4. Spreadsheet import** — drag-and-drop xlsx / csv, select a rack number and a device sample, temporary rack-name format
+
+![Spreadsheet import](docs/screenshots/04-import.jpg)
+
+**5. One-sentence data changes** — natural language parsed into a reviewable change plan (rule engine first)
+
+![One-sentence data changes](docs/screenshots/05-nl-command.jpg)
+
+> "IDC 机房运维" is the product's own in-app title; the project's external name is **RackAtlas**. Every value in these screenshots is fictional demo data (`DEMO-*`, `192.0.2.x`); no real data-center information is shown.
 
 ## Integrity Verification
 

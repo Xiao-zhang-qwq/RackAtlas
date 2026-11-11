@@ -32,7 +32,9 @@
 
 五个自检脚本均为纯内存、零依赖、不联网、不写盘，直接 `node` 运行即可验证，全部断言通过。
 
-**本仓库不包含**：任何服务端主程序、HTTP 接口实现、UI 页面、样式文件、前端交互组件、三维渲染资源、静态资源服务、完整导入识别引擎、零依赖 XLSX 读写引擎、完整 AI 规则引擎、系统管理或部署脚本。以上完整实现仅在私有仓库 `RackAtlas-full` 存证，以保证源代码安全。
+**本仓库不包含**：任何服务端主程序、HTTP 接口实现、UI 页面、样式文件、前端交互组件、三维渲染**代码与资源文件**、静态资源服务、完整导入识别引擎、零依赖 XLSX 读写引擎、完整 AI 规则引擎、系统管理或部署脚本。以上完整实现仅在私有仓库 `RackAtlas-full` 存证，以保证源代码安全。
+
+`docs/screenshots/` 下的 5 张图片是**界面渲染截图**，仅用于 README 展示功能形态；它们不含任何源码，也不构成可据此还原界面的素材。仓库内不含任何 `.html` / `.css` / 前端 `.js` 文件。
 
 ## 五项创新能力
 
@@ -47,7 +49,34 @@
 - `lib/linkage.js`、`lib/nl-public-demo.js`、`lib/undo-public-demo.js`、`lib/export-public-demo.js`、`lib/rack-format-public-demo.js`：五个独立、自包含的证明模块（每个都是全量工程对应逻辑的**极小逐字摘录 + 演示级最小实现**）。
 - `examples/linkage-demo.js`、`examples/nl-demo.js`、`examples/undo-demo.js`、`examples/export-demo.js`、`examples/rack-format-demo.js`：五个可运行自检。
 - `docs/创新功能说明.md`、`docs/AI创新功能说明.md`、`docs/撤销与导出功能说明.md`：创新点与公开边界说明。
+- `docs/screenshots/`：5 张界面截图（`01-portal-overview` / `02-room-3d` / `03-rack-u-positions` / `04-import` / `05-nl-command`），仅作展示，不含源码。
 - `LICENSE`、`README.md`、`README.en.md`、`package.json`、`.gitattributes`、`.gitignore`：版权协议、双语文档与最小工程配置。
+
+## 界面示例
+
+以下截图来自**完整工程的实际运行界面**（`POST /api/reset` 载入的演示数据），仅用于展示功能形态：
+
+**① 机房资产总览** —— 机房卡片、机柜 / 设备 / 使用率统计、最近变更、容量概览
+
+![机房资产总览](docs/screenshots/01-portal-overview.jpg)
+
+**② 三维机房** —— 机柜列排布、顶盖电力条、按柜名 / SN 定位、视角漫游
+
+![三维机房](docs/screenshots/02-room-3d.jpg)
+
+**③ 机柜 U 位台账** —— U 位分布、设备清单、机柜信息与端口状态
+
+![机柜 U 位台账](docs/screenshots/03-rack-u-positions.jpg)
+
+**④ 表格导入** —— 拖拽 xlsx / csv、框选机柜编号与设备样本、临时指定柜名格式
+
+![表格导入](docs/screenshots/04-import.jpg)
+
+**⑤ 一句话改数据** —— 自然语言解析为可确认的变更计划（规则引擎优先）
+
+![一句话改数据](docs/screenshots/05-nl-command.jpg)
+
+> 界面标题「IDC 机房运维」是产品自身的界面标题，项目对外名称为 **RackAtlas 机柜图谱**。截图中全部为虚构演示数据（`DEMO-*`、`192.0.2.x`），不含任何真实机房信息。
 
 ## 完整性校验
 
